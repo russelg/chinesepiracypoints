@@ -1,45 +1,50 @@
 <template>
-  <div id="app">
+  <div id="app" class="mui-container">
     <form id="main" method="#" class="pure-form pure-form-aligned">
-      <div class="pure-g">
-        <div class="form pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+      <div class="mui-row">
+        <div class="form mui-col-md-6">
           <temp-form :inputs="inputs" :values="values" :dt="values.date"></temp-form>
+          <div class="center">
+            <button class="mui-btn mui-btn--primary" @click="showPost = true" type="button">Generate Post</button>
+          </div>
         </div>
-        <div class="form pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
-          <fieldset>
-            <legend>Add Media</legend>
-            <div class="pure-control-group center">
-              <button style="margin: 3px" v-for="i in mapping" type="button" class="pure-button pure-button-primary" @click="addMedia(Media[i])">Add new {{ i }}</button>
-            </div>
-          </fieldset>
-          <fieldset v-for="m in media">
-            <cd-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.CD" :remove-media="removeMedia"></cd-form>
-            <dvd-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.DVD" :remove-media="removeMedia"></dvd-form>
-            <bk-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.BK" :remove-media="removeMedia"></bk-form>
-          </fieldset>
+        <div class="form mui-col-md-6">
           <temp-form :inputs="right_inputs" :values="values"></temp-form>
+          <div class="mui-panel">
+            <legend>Add Media</legend>
+            <div class="center" style="margin-bottom: 1em;" >
+              <button style="margin: 3px;" v-for="i in mapping" type="button" class="mui-btn mui-btn--primary" @click="addMedia(Media[i])">Add new {{ i }}</button>
+            </div>
+          </div>
+          <div class="mui-panel" v-for="m in media">
+            <cd-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.CD"></cd-form>
+            <dvd-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.DVD"></dvd-form>
+            <bk-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.BK"></bk-form>
+            <div style="text-align: center">
+              <button type="button" class="mui-btn mui-btn--danger" @click="removeMedia($index)">Remove</button>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="mui-row">
       </div>
     </form>
     <modal v-if="showPost" :show.sync="showPost">
       <h3 slot="header">Contents</h3>
       <div slot="body">
-        <div class="pure-control-group">
+        <div class="mui-textfield">
             <label for="title">Title</label>
-            <textarea name="title">{{ getData().title }}</textarea>
+            <input type="text" name="title" value="{{ getData().title }}">
         </div>
-        <div class="pure-control-group">
+        <div class="mui-textfield">
             <label for="body">Body</label>
             <textarea name="Body">{{ getData().body }}</textarea>
         </div>
       </div>
       <div slot="footer">
-        <button type="button" class="pure-button pure-button-primary" @click="showPost = false">Done</button>
+        <button type="button" class="mui-btn mui-btn--primary" @click="showPost = false">Done</button>
       </div>
     </modal>
-    <div class="center">
-      <button class="pure-button pure-button-primary" @click="showPost = true" type="button">Generate Post</button>
-    </div>
   </div>
 </template>
 
@@ -156,7 +161,9 @@ export default {
               title: 'Proof URL:'
             }
           ]
-        },
+        }
+      ],
+      right_inputs: [
         {
           name: 'Post Options',
           inputs: [
@@ -173,9 +180,7 @@ export default {
               default: true
             }
           ]
-        }
-      ],
-      right_inputs: [
+        },
         {
           name: 'CD/s Link',
           inputs: [

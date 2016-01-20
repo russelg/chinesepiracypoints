@@ -1,18 +1,15 @@
 <template>
   <div>
     <legend>Item {{ parseInt(idx) + 1 }} (CD)</legend>
-    <div class="pure-control-group" @dragover.prevent @dragenter.prevent @drop="dropCue">
+    <div class="mui-textfield" @dragover.prevent @dragenter.prevent @drop="dropCue">
       <label for="tracks">Tracklisting (any format):</label>
       <textarea name="tracks" v-model="media.tracks">{{ media.tracks }}</textarea>
-      <button type="button" class="pure-button" @click="$els.cue.click()">Load CUE</button>
+      <button type="button" class="mui-btn mui-btn--primary" @click="$els.cue.click()">Load CUE</button>
     </div>
-    <div class="pure-control-group" @dragover.prevent @dragenter.prevent @drop="dropLog">
+    <div class="mui-textfield" @dragover.prevent @dragenter.prevent @drop="dropLog">
       <label for="log">Log:</label>
       <textarea name="log" v-model="media.log">{{ media.log }}</textarea>
-      <button type="button" class="pure-button" @click="$els.log.click()">Load Log</button>
-    </div>
-    <div style="text-align: center">
-      <button type="button" class="button-error pure-button remove-button" @click="removeMedia(idx)">Remove</button>
+      <button type="button" class="mui-btn mui-btn--primary" @click="$els.log.click()">Load Log</button>
     </div>
     <input type='file' v-el:cue @change="closeCue()" class="hide" />
     <input type='file' v-el:log @change="closeLog()" class="hide" />

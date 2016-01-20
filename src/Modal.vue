@@ -8,11 +8,11 @@
               default header
             </slot>
           </legend>
-          <fieldset class="modal-body">
+          <div class="modal-body">
             <slot name="body">
               default body
             </slot>
-          </fieldset>
+          </div>
           <div class="modal-footer">
             <slot name="footer">
               default footer
