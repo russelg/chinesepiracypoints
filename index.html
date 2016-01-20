@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    body {
+        margin: 2em 3em;
+    }
+
+    .ui-datepicker[style] {
+        display: block;
+    }
+
+    .button-success,
+    .button-error,
+    .button-warning,
+    .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-success {
+        background: rgb(28, 184, 65);
+        /* this is a green */
+    }
+
+    .button-error {
+        background: rgb(202, 60, 60);
+        /* this is a maroon */
+    }
+
+    .button-warning {
+        background: rgb(223, 117, 20);
+        /* this is an orange */
+    }
+
+    .button-secondary {
+        background: rgb(66, 184, 221);
+        /* this is a light blue */
+    }
+
+    .fade {
+        opacity: 0;
+        -webkit-transition: opacity 0.15s linear;
+        -moz-transition: opacity 0.15s linear;
+        -o-transition: opacity 0.15s linear;
+        transition: opacity 0.15s linear;
+    }
+
+    .fade.in {
+        opacity: 1;
+    }
+
+    .rd-day-body {
+        padding: 0.3em;
+    }
+
+    .center {
+        text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <app></app>
+    <script src="dist/build.js"></script>
+  </body>
+</html>
