@@ -18,12 +18,10 @@
         </div>
         <temp-form :inputs="right_inputs" :values="values"></temp-form>
       </div>
-      <div class="mui-row">
-        <div class="form mui-col-md-6">
-          <temp-form :inputs="inputs" :values="values" :dt="values.date"></temp-form>
-          <div class="center">
-            <button class="mui-btn mui-btn--primary" @click="showPost = true" type="button">Generate Post</button>
-          </div>
+      <div class="form mui-col-md-6">
+        <temp-form :inputs="inputs" :values="values" :dt="values.date"></temp-form>
+        <div class="center">
+          <button class="mui-btn mui-btn--primary" @click="showPost = true" type="button">Generate Post</button>
         </div>
       </div>
     </form>
@@ -71,39 +69,39 @@ export default {
           }, {
             name: 'artist',
             type: 'text',
-            title: 'Artist:'
+            title: 'Artist'
           }, {
             name: 'title',
             type: 'text',
-            title: 'Title:'
+            title: 'Title'
           }, {
             name: 'date',
             type: 'date',
-            title: 'Release Date:'
+            title: 'Release Date'
           }, {
             name: 'cover',
             type: 'text',
-            title: 'Cover URL:'
+            title: 'Cover URL'
           }, {
             name: 'homepage',
             type: 'text',
-            title: 'Homepage URL:'
+            title: 'Homepage URL'
           }, {
             name: 'label',
             type: 'text',
-            title: 'Label:'
+            title: 'Label'
           }, {
             name: 'catalog',
             type: 'text',
-            title: 'Catalog Number:'
+            title: 'Catalog Number'
           }, {
             name: 'desc',
             type: 'textarea',
-            title: 'Description:'
+            title: 'Description'
           }, {
             name: 'main_filetype',
             type: 'select',
-            title: 'Audio Format:',
+            title: 'Audio Format',
             options: [
               'WAV',
               'FLAC',
@@ -126,7 +124,7 @@ export default {
           }, {
             name: 'event_name',
             type: 'text',
-            title: 'Event Name:',
+            title: 'Event Name',
             depends: 'event'
           }]
         }, {
@@ -137,14 +135,14 @@ export default {
           inputs: [{
             name: 'proof_url',
             type: 'text',
-            title: 'Proof URL:'
+            title: 'Proof URL'
           }]
         }, {
           name: 'Post Options',
           inputs: [{
             name: 'cost',
             type: 'number',
-            title: 'Cost:',
+            title: 'Cost',
             default: 3
           }, {
             name: 'post_restrict',
@@ -158,15 +156,15 @@ export default {
           inputs: [{
             name: 'file_url',
             type: 'text',
-            title: 'URL:'
+            title: 'URL'
           }, {
             name: 'file_pass',
             type: 'text',
-            title: 'Password:'
+            title: 'Password'
           }, {
             name: 'file_size',
             type: 'text',
-            title: 'Size (MB):'
+            title: 'Size (MB)'
           }]
         }],
         values: {
