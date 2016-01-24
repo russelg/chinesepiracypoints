@@ -20,7 +20,9 @@ Vue.directive('rome', {
     var vm = this.vm;
     var key = this.expression;
     window.el = this.el;
-    window.rome(this.el, {time: false}).on('data', function(val) {
+    window.rome(this.el, {
+      time: false
+    }).on('data', function(val) {
       vm.$set(key, val);
     });
   },
@@ -31,5 +33,7 @@ Vue.directive('rome', {
 
 new Vue({
   el: 'body',
-  components: { App }
+  components: {
+    App
+  }
 })

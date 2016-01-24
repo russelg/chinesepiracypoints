@@ -26,7 +26,6 @@
     </div>
   </div>
 </template>
-
 <style>
 .modal-mask {
   position: fixed;
@@ -89,7 +88,6 @@
   transform: scale(1.1);
 }
 </style>
-
 <script>
 export default {
   props: {

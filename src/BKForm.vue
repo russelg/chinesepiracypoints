@@ -23,9 +23,8 @@
     </div>
   </div>
 </template>
-
 <script>
-  export default {
-    props: ["idx", "media", "removeMedia"]
-  }
+export default {
+  props: ["idx", "media"]
+}
 </script>
