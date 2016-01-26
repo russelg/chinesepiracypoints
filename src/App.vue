@@ -5,7 +5,9 @@
         <div class="mui-panel">
           <legend>Add Media</legend>
           <div class="center" style="margin-bottom: 1em;">
-            <button style="margin: 3px;" v-for="i in mapping" type="button" class="mui-btn mui-btn--primary" @click="addMedia(Media[i])">Add new {{ i }}</button>
+            <span v-for="i in mapping" >
+              <button style="margin: 3px;" type="button" class="mui-btn mui-btn--primary" @click="addMedia(Media[i])">Add new {{ i }}</button>
+            </span>
           </div>
         </div>
         <div class="mui-panel" v-for="m in media">
@@ -54,7 +56,22 @@ media.map(function(itm, i) {
 export default {
   data() {
       return {
-        inputs: [{
+        values: {
+          date: "2015-12-31"
+        },
+        Media: Media,
+        mapping: media,
+        media: [{
+          media: Media.CD,
+          tracks: '',
+          log: ''
+        }],
+        showPost: false
+      }
+    },
+    computed: {
+      inputs: function() {
+        return [{
           name: "General",
           inputs: [{
             name: 'selfrip',
@@ -150,9 +167,11 @@ export default {
             title: 'Require Reply?',
             default: true
           }]
-        }, ],
-        right_inputs: [{
-          name: 'CD/s Link',
+        }]
+      },
+      right_inputs: function() {
+        return [{
+          name: 'CD Link',
           inputs: [{
             name: 'file_url',
             type: 'text',
@@ -166,18 +185,21 @@ export default {
             type: 'text',
             title: 'Size (MB)'
           }]
-        }],
-        values: {
-          date: "2015-12-31"
-        },
-        Media: Media,
-        mapping: media,
-        media: [{
-          media: Media.CD,
-          tracks: '',
-          log: ''
-        }],
-        showPost: false
+        }, {
+          name: 'RAR Recovery',
+          inputs: [{
+            name: 'recovery',
+            type: 'checkbox',
+            title: 'Recovery record included?',
+            default: true
+          }, {
+            name: 'recovery_percent',
+            type: 'number',
+            title: 'rr%',
+            default: 3,
+            depends: 'recovery'
+          }]
+        }]
       }
     },
     methods: {
@@ -320,7 +342,7 @@ export default {
             output += wrap('[]', context.date.format("YYMMDD"));
           }
           output += wrap('  ', [context.artist, context.title].join(' - '));
-          output += wrap('()', context.format);
+          output += wrap('()', context.format + (context.recovery ? '+rr' + context.recovery_percent + "%" : ""));
           output += wrap('[]', context.total_size + 'MB');
           return output;
         };
@@ -369,6 +391,9 @@ export default {
             _output.push("发行日期: " + context.date.format("YYYY.MM.DD") + (context.event ? ' (' + context.event_name + ')' : ''));
             _output.push("版本特性: " + (context.web ? "Digital Download" : context.medium));
             _output.push("格式: " + context.format);
+            if (context.recovery) {
+              _output.push("Recovery: " + context.recovery_percent + "%");
+            }
             if (context.desc) {
               _output.push("");
               _output.push(context.desc);

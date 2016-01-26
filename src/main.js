@@ -21,7 +21,10 @@ Vue.directive('rome', {
     var key = this.expression;
     window.el = this.el;
     window.rome(this.el, {
-      time: false
+      time: false,
+      styles: {
+        container: 'mui-panel'
+      }
     }).on('data', function(val) {
       vm.$set(key, val);
     });
