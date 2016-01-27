@@ -1,7 +1,7 @@
 <template>
-  <div class="mui-panel" v-for="group in inputs" v-show="showOptional(group)">
+  <div class="mui-panel" v-for="group in inputs" v-if="showOptional(group)">
     <legend>{{ group.name }}</legend>
-    <div v-for="input in group.inputs" v-bind:class="classFor(input.type)" v-show="showOptional(input)">
+    <div v-for="input in group.inputs" v-bind:class="classFor(input.type)" v-if="showOptional(input)">
       <label>
         <input v-if="input.type == 'checkbox'" type="checkbox" v-bind:name="input.name" v-model="values[input.name]" v-bind:checked="input.default" /> {{ input.title }}
       </label>
@@ -11,7 +11,7 @@
       <select v-if="input.type == 'select'" type="select" v-bind:name="input.name" v-model="values[input.name]">
         <option v-for="option in input.options" v-bind:selected="input.default == $index">{{ option }}</option>
       </select>
-      <input v-if="input.type == 'date'" type="date" v-bind:name="input.name" v-rome="dt" v-model="values[input.name]">
+      <input v-if="input.type == 'date'" type="text" v-bind:name="input.name" v-rome="dt" v-model="values[input.name]">
     </div>
   </div>
 </template>

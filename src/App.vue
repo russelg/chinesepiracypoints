@@ -57,7 +57,7 @@ export default {
   data() {
       return {
         values: {
-          date: "2015-12-31"
+          date: ""
         },
         Media: Media,
         mapping: media,

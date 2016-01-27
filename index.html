@@ -15,7 +15,9 @@
       font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
       background-color: #f1f1f1;
     }
-    .center, .rd-month-label {
+
+    .center,
+    .rd-month-label {
       text-align: center;
     }
 
@@ -97,12 +99,21 @@
       margin-top: 5px;
     }
 
-    .rd-day-body {
-      padding: 0.5em;
-    }
-
     .rd-container-attachment {
       display: none;
+    }
+
+    .msg {
+      transition: all .3s ease;
+    }
+
+    .msg-enter,
+    .msg-leave {
+      opacity: 0;
+    }
+
+    .rd-day-body, .rd-day-head {
+      padding: 0.3em 0.5em;
     }
     </style>
   </head>
