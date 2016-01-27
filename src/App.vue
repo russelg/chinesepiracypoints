@@ -5,7 +5,7 @@
         <div class="mui-panel">
           <legend>Add Media</legend>
           <div class="center" style="margin-bottom: 1em;">
-            <span v-for="i in mapping" >
+            <span v-for="i in mapping">
               <button style="margin: 3px;" type="button" class="mui-btn mui-btn--primary" @click="addMedia(Media[i])">Add new {{ i }}</button>
             </span>
           </div>
@@ -83,6 +83,16 @@ export default {
             type: 'checkbox',
             title: 'WEB?',
             default: false
+          }, {
+            name: 'custom_edition',
+            type: 'checkbox',
+            title: 'Custom Edition?',
+            default: false
+          }, {
+            name: 'custom',
+            type: 'text',
+            title: 'Custom Edition',
+            depends: "custom_edition"
           }, {
             name: 'artist',
             type: 'text',
@@ -342,6 +352,9 @@ export default {
             output += wrap('[]', context.date.format("YYMMDD"));
           }
           output += wrap('  ', [context.artist, context.title].join(' - '));
+          if (context.custom_edition) {
+            output += wrap('()', context.custom);
+          }
           output += wrap('()', context.format + (context.recovery ? '+rr' + context.recovery_percent + "%" : ""));
           output += wrap('[]', context.total_size + 'MB');
           return output;
