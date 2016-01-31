@@ -11,7 +11,7 @@
       <select v-if="input.type == 'select'" type="select" v-bind:name="input.name" v-model="values[input.name]">
         <option v-for="option in input.options" v-bind:selected="input.default == $index">{{ option }}</option>
       </select>
-      <input v-if="input.type == 'date'" type="text" v-bind:name="input.name" v-rome="dt" v-model="values[input.name]">
+      <input v-if="input.type == 'date'" type="text" v-bind:name="input.name" v-rome="dt" v-model="values[input.name]" v-bind:value="input.default">
     </div>
   </div>
 </template>

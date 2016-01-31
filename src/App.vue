@@ -104,7 +104,12 @@ export default {
           }, {
             name: 'date',
             type: 'date',
-            title: 'Release Date'
+            title: 'Release Date',
+            default: (() => {
+              var d = new Date();
+              var zero_pad = (x) => (x < 10) ? "0" + x : x;
+              return zero_pad(d.getFullYear()) + '-' + zero_pad(d.getMonth() + 1) + '-' + zero_pad(d.getDate());
+            })()
           }, {
             name: 'cover',
             type: 'text',
@@ -132,10 +137,11 @@ export default {
             options: [
               'WAV',
               'FLAC',
+              'TTA',
               'TAK',
               'MP3'
             ],
-            default: 0
+            default: 2
           }, {
             name: 'cuefiles',
             type: 'checkbox',
