@@ -105,11 +105,7 @@ export default {
             name: 'date',
             type: 'date',
             title: 'Release Date',
-            default: (() => {
-              var d = new Date();
-              var zero_pad = (x) => (x < 10) ? "0" + x : x;
-              return zero_pad(d.getFullYear()) + '-' + zero_pad(d.getMonth() + 1) + '-' + zero_pad(d.getDate());
-            })()
+            default: new Date()
           }, {
             name: 'cover',
             type: 'text',
