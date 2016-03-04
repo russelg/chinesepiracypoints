@@ -1,7 +1,7 @@
 <template>
-  <div class="mui-panel" v-for="group in inputs" v-if="showOptional(group)">
+  <div class="mui-panel" v-for="group in inputs" v-show="showOptional(group)" transition="group">
     <legend>{{ group.name }}</legend>
-    <div v-for="input in group.inputs" v-bind:class="classFor(input.type)" v-if="showOptional(input)">
+    <div v-for="input in group.inputs" v-bind:class="classFor(input.type)" v-show="showOptional(input)" transition="group">
       <label>
         <input v-if="input.type == 'checkbox'" type="checkbox" v-bind:name="input.name" v-model="values[input.name]" v-bind:checked="input.default" /> {{ input.title }}
       </label>
@@ -15,6 +15,34 @@
     </div>
   </div>
 </template>
+<style>
+/*
+ * the following styles are auto-applied to elements with
+ * v-transition="modal" when their visiblity is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.group-transition {
+  transition: all .5s ease, background-color 1s linear;
+  max-height: auto;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.group-enter,
+.group-leave {
+  max-height: 0px;
+  opacity: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  background-color: rgb(253, 253, 179);
+}
+</style>
+
 <script>
 export default {
   props: ["inputs", "values", "dt"],

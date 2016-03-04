@@ -27,7 +27,7 @@
         </div>
       </div>
     </form>
-    <modal v-if="showPost" :show.sync="showPost">
+    <modal :show.sync="showPost">
       <h3 slot="header">Contents</h3>
       <div slot="body">
         <div class="mui-textfield">
@@ -177,7 +177,7 @@ export default {
             name: 'post_restrict',
             type: 'checkbox',
             title: 'Require Reply?',
-            default: true
+            default: false
           }]
         }]
       },
@@ -247,7 +247,6 @@ export default {
         var context = Object.assign({}, this.values, {
           media: this.media
         });
-        this.$log();
         context.date = date;
         context.only_cds = context.media.filter(function(itm) {
           return itm.media === Media.CD;
@@ -357,7 +356,7 @@ export default {
           if (context.custom_edition) {
             output += wrap('()', context.custom);
           }
-          output += wrap('()', context.format + (context.recovery ? '+rr' + context.recovery_percent + "%" : ""));
+          output += wrap('()', context.format + (context.recovery ? '/rr' + context.recovery_percent + "%" : ""));
           output += wrap('[]', context.total_size + 'MB');
           return output;
         };
