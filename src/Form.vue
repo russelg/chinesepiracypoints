@@ -15,34 +15,6 @@
     </div>
   </div>
 </template>
-<style>
-/*
- * the following styles are auto-applied to elements with
- * v-transition="modal" when their visiblity is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
-.group-transition {
-  transition: all .5s ease, background-color 1s linear;
-  max-height: auto;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.group-enter,
-.group-leave {
-  max-height: 0px;
-  opacity: 0;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  background-color: rgb(253, 253, 179);
-}
-</style>
-
 <script>
 export default {
   props: ["inputs", "values", "dt"],

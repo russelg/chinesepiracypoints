@@ -1,126 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <title>post</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.muicss.com/mui-0.2.10/css/mui.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.muicss.com/mui-0.2.10/js/mui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    body {
-      margin: 2em 3em;
-      font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
-      background-color: #f1f1f1;
-    }
+<head>
+  <meta charset="utf-8">
+  <title>post</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.muicss.com/mui-0.2.10/css/mui.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.muicss.com/mui-0.2.10/js/mui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  body {
+    margin: 2em 3em;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+    background-color: #f1f1f1;
+  }
 
-    .center,
-    .rd-month-label {
-      text-align: center;
-    }
+  .center,
+  .rd-month-label {
+    text-align: center;
+  }
 
-    .mui-textfield > input,
-    .mui-textfield > textarea {
-      transition: all 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
-      font-size: 15px;
-    }
+  .mui-textfield > input,
+  .mui-textfield > textarea {
+    transition: all 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+    font-size: 15px;
+  }
 
-    .mui-textfield > input:focus,
-    .mui-textfield > textarea:focus {
-      margin-bottom: 0px;
-      height: 32px;
-    }
+  .mui-textfield > input:focus,
+  .mui-textfield > textarea:focus {
+    margin-bottom: 0px;
+    height: 32px;
+  }
 
-    .mui-textfield > input ~ label,
-    .mui-textfield > textarea ~ label {
-      transition: all 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
-    }
+  .mui-textfield > input ~ label,
+  .mui-textfield > textarea ~ label {
+    transition: all 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+  }
 
-    .mui-panel {
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-    }
+  .mui-panel {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  }
 
-    .mui-col-lg-1,
-    .mui-col-lg-10,
-    .mui-col-lg-11,
-    .mui-col-lg-12,
-    .mui-col-lg-2,
-    .mui-col-lg-3,
-    .mui-col-lg-4,
-    .mui-col-lg-5,
-    .mui-col-lg-6,
-    .mui-col-lg-7,
-    .mui-col-lg-8,
-    .mui-col-lg-9,
-    .mui-col-md-1,
-    .mui-col-md-10,
-    .mui-col-md-11,
-    .mui-col-md-12,
-    .mui-col-md-2,
-    .mui-col-md-3,
-    .mui-col-md-4,
-    .mui-col-md-5,
-    .mui-col-md-6,
-    .mui-col-md-7,
-    .mui-col-md-8,
-    .mui-col-md-9,
-    .mui-col-sm-1,
-    .mui-col-sm-10,
-    .mui-col-sm-11,
-    .mui-col-sm-12,
-    .mui-col-sm-2,
-    .mui-col-sm-3,
-    .mui-col-sm-4,
-    .mui-col-sm-5,
-    .mui-col-sm-6,
-    .mui-col-sm-7,
-    .mui-col-sm-8,
-    .mui-col-sm-9,
-    .mui-col-xs-1,
-    .mui-col-xs-10,
-    .mui-col-xs-11,
-    .mui-col-xs-12,
-    .mui-col-xs-2,
-    .mui-col-xs-3,
-    .mui-col-xs-4,
-    .mui-col-xs-5,
-    .mui-col-xs-6,
-    .mui-col-xs-7,
-    .mui-col-xs-8,
-    .mui-col-xs-9 {
-      padding-left: 8px;
-      padding-right: 8px;
-    }
+  .mui-col-lg-1,
+  .mui-col-lg-10,
+  .mui-col-lg-11,
+  .mui-col-lg-12,
+  .mui-col-lg-2,
+  .mui-col-lg-3,
+  .mui-col-lg-4,
+  .mui-col-lg-5,
+  .mui-col-lg-6,
+  .mui-col-lg-7,
+  .mui-col-lg-8,
+  .mui-col-lg-9,
+  .mui-col-md-1,
+  .mui-col-md-10,
+  .mui-col-md-11,
+  .mui-col-md-12,
+  .mui-col-md-2,
+  .mui-col-md-3,
+  .mui-col-md-4,
+  .mui-col-md-5,
+  .mui-col-md-6,
+  .mui-col-md-7,
+  .mui-col-md-8,
+  .mui-col-md-9,
+  .mui-col-sm-1,
+  .mui-col-sm-10,
+  .mui-col-sm-11,
+  .mui-col-sm-12,
+  .mui-col-sm-2,
+  .mui-col-sm-3,
+  .mui-col-sm-4,
+  .mui-col-sm-5,
+  .mui-col-sm-6,
+  .mui-col-sm-7,
+  .mui-col-sm-8,
+  .mui-col-sm-9,
+  .mui-col-xs-1,
+  .mui-col-xs-10,
+  .mui-col-xs-11,
+  .mui-col-xs-12,
+  .mui-col-xs-2,
+  .mui-col-xs-3,
+  .mui-col-xs-4,
+  .mui-col-xs-5,
+  .mui-col-xs-6,
+  .mui-col-xs-7,
+  .mui-col-xs-8,
+  .mui-col-xs-9 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 
-    .mui-panel.rd-container-attachment {
-      box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
-      margin-top: 5px;
-    }
+  .mui-panel.rd-container-attachment {
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+    margin-top: 5px;
+  }
 
-    .rd-container-attachment {
-      display: none;
-    }
+  .rd-container-attachment {
+    display: none;
+  }
 
-    .msg {
-      transition: all .3s ease;
-    }
+  .msg {
+    transition: all .3s ease;
+  }
 
-    .msg-enter,
-    .msg-leave {
-      opacity: 0;
-    }
+  .msg-enter,
+  .msg-leave {
+    opacity: 0;
+  }
 
-    .rd-day-body, .rd-day-head {
-      padding: 0.3em 0.5em;
-    }
-    </style>
-  </head>
+  .rd-day-body,
+  .rd-day-head {
+    padding: 0.3em 0.5em;
+  }
 
-  <body>
-    <app></app>
-    <script src="dist/build.js"></script>
-  </body>
+  .group-transition {
+    transition: all .5s ease, background-color 1s linear;
+    max-height: auto;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .group-enter,
+  .group-leave {
+    max-height: 0px;
+    opacity: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    background-color: rgb(253, 253, 179);
+  }
+  </style>
+</head>
+
+<body>
+  <app></app>
+  <script src="dist/build.js"></script>
+</body>
 
 </html>

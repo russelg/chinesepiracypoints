@@ -10,7 +10,7 @@
             </span>
           </div>
         </div>
-        <div class="mui-panel" v-for="m in media">
+        <div class="mui-panel" v-for="m in media" transition="group">
           <cd-form :media="m" :values="values" :idx="parseInt($index)" v-if="m.media == Media.CD"></cd-form>
           <dvd-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.DVD"></dvd-form>
           <bk-form :media="m" :idx="parseInt($index)" v-if="m.media == Media.BK"></bk-form>
