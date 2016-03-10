@@ -20,7 +20,6 @@ export default {
   props: ["inputs", "values", "dt"],
   methods: {
     showOptional: function(input) {
-      console.log(JSON.parse(JSON.stringify(input)));
       if ("depends" in input) {
         if (typeof input.depends === "function") {
           return input.depends(this.values);
